@@ -27,8 +27,8 @@ from help import views as help_views
 from grid_panel import views as grid_panel
 from chat import views as chat_views
 from message import views as message
-
 from django.contrib.auth import views as auth_views
+from aboutAuthor import views as about_view
 
 
 urlpatterns = [
@@ -61,6 +61,7 @@ urlpatterns = [
     path('price_max', grid_panel.order_by_priceMax, name="orderbymax"),
     path('price_min', grid_panel.order_by_priceMin, name="orderbymin"),
     path('adver/<int:adver_id>/', detail_view.show_adver, name='adver'),
-    path('chat/',chat_views.message_page, name='chat')
+    path('chat/',chat_views.message_page, name='chat'),
+    path('detailsAboutAuthor/<int:id>', about_view.aboutAuthor , name='aboutAuthor')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
